@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Expert</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init({
+    once: true,
+    duration: 500,
+    easing: 'ease-out-cubic',
+    offset: 30
+  });
+</script>
+
+
+
+
+
+<header class="navbar">
+  <div class="nav-inner">
+    
+    <div class="logo">NAZEV</div>
+
+    <!-- HAMBURGER -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav class="nav-pill" id="nav">
+      <a href="index.html#contact" class="btn primary">CHCI PRODAT</a>
+      <a href="index.html#contact" class="btn secondary">CHCI KOUPIT</a>
+      <a href="index.html"><button>Úvod</button></a>
+      <a href="index.html#services"><button>Služby</button></a>
+      <a href="postup.html"><button>Postup prodeje</button></a>
+      <a href="index.html#team"><button>Náš tým</button></a>
+      <a href="index.html#contact" class="cta">Kontakty</a>
+    </nav>
+
+  </div>
+</header>
+
+
+
+
+<section class="hero">
+  <div class="hero-slider">
+    <div class="slider-track">
+      <div class="slide" style="background-image: url('https://i.pinimg.com/originals/32/e1/35/32e135657945054bcdb9b71cbee58be8.jpg');"></div>
+      <div class="slide" style="background-image: url('https://www.asb-portal.cz/wp-content/uploads/2019/04/Rekonstrukce-RD-v-Praze-07.jpg');"></div>
+      <div class="slide" style="background-image: url('https://awe-inspiringplaces.com/wp-content/uploads/2024/01/Sternberk-Castle.jpeg');"></div>
+      <div class="slide" style="background-image: url('https://www.10wallpaper.com/wallpaper/2560x1600/1507/Igloo_Snow-HD_Photoshoot_Wallpaper_2560x1600.jpg');"></div>
+      <div class="slide" style="background-image: url('https://www.personaltrainerfood.com/blog/wp-content/uploads/2017/07/iStock-511100108.jpg');"></div>
+    </div>
+  </div>
+
+  <div class="hero-bg-pattern" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <h2>SOUKROMÝ REALITNÍ ZPROSTŘEDKOVATEL</h2>
+
+    <p class="subtext">
+      <b>NEZABÝVEJTE SE STAROSTMI, NECHTE JE NA NÁS.<br>
+        OD PRODEJE PO PRÁVNÍ SERVIS, VŠE VYŘEŠIME ZA VÁS.</b>
+    </p>
+  </div>
+
+  <div class="hero-identity">
+    <h1><b>Ilona Brázdilová</b></h1>
+    <p class="phone"><b>TEL: 723 958 609</b></p>
+  </div>
+</section>
+
+<script>
+  const heroTrack = document.querySelector('.hero-slider .slider-track');
+
+  if (heroTrack) {
+    const slides = Array.from(heroTrack.children);
+    const slideCount = slides.length;
+    let currentIndex = 0;
+    let sliderInterval = null;
+    let isTransitioning = false;
+
+    // Clone slides for seamless infinite looping
+    slides.forEach(slide => heroTrack.appendChild(slide.cloneNode(true)));
+
+    function showSlide(index, immediate = false) {
+      const offset = -index * 100;
+      if (immediate) {
+        heroTrack.style.transition = 'none';
+        heroTrack.style.transform = `translate3d(${offset}vw,0,0)`;
+      } else {
+        heroTrack.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+        heroTrack.style.transform = `translate3d(${offset}vw,0,0)`;
+      }
+    }
+
+    function nextSlide() {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      currentIndex += 1;
+      showSlide(currentIndex, false);
+
+      if (currentIndex === slideCount) {
+        setTimeout(() => {
+          showSlide(0, true);
+          currentIndex = 0;
+          isTransitioning = false;
+        }, 400);
+      } else {
+        setTimeout(() => {
+          isTransitioning = false;
+        }, 400);
+      }
+    }
+
+    function startSlider() {
+      if (sliderInterval) return;
+      sliderInterval = setInterval(nextSlide, 3500);
+    }
+
+    function stopSlider() {
+      if (!sliderInterval) return;
+      clearInterval(sliderInterval);
+      sliderInterval = null;
+    }
+
+    // Pause when page hidden
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stopSlider();
+      else startSlider();
+    });
+
+    // Pause on hover
+    heroTrack.addEventListener('mouseenter', stopSlider);
+    heroTrack.addEventListener('mouseleave', startSlider);
+
+    showSlide(0, true);
+    setTimeout(startSlider, 2000); // První slide po 2 sekundách
+  }
+</script>
+
+<section class="stats" data-aos="fade-up" data-aos-duration="1000">
+  <div class="container">
+
+    <span class="section-label">Proč s námi</span>
+
+    <h2>
+       <span class="highlight">ČÍSLA, KTERÁ MLUVÍ ZA NÁS.</span>
+    </h2>
+
+    <div class="stats-grid">
+
+      <div class="stat">
+        <h3 class="counter" data-target="12">0</h3>
+        <p>let na trhu</p>
+      </div>
+
+      <div class="stat">
+        <h3 class="counter" data-target="280">0</h3>
+        <p>spokojených klientů</p>
+      </div>
+
+      <div class="stat">
+        <h3 class="counter" data-target="98">0</h3>
+        <p>prodáno nad odhad</p>
+      </div>
+
+      <div class="stat">
+        <h3 class="counter" data-target="21">0</h3>
+        <p>dní průměrná doba prodeje</p>
+      </div>
+      
+    </div>
+  </div>
+</section>
+<script>
+const counters = document.querySelectorAll('.counter');
+
+const runCounter = (counter) => {
+  const target = +counter.getAttribute('data-target');
+  let count = 0;
+
+  const speed = target / 50;
+
+  const update = () => {
+    if (count < target) {
+      count += speed;
+      counter.innerText = Math.floor(count);
+      requestAnimationFrame(update);
+    } else {
+      // finální formát
+      if (target === 98) {
+        counter.innerText = target + " %";
+      } else if (target === 12 || target === 280) {
+        counter.innerText = target + "+";
+      } else {
+        counter.innerText = target;
+      }
+    }
+  };
+
+  update();
+};
+
+// Intersection Observer (spustí při scrollu)
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const counter = entry.target;
+      runCounter(counter);
+      observer.unobserve(counter);
+    }
+  });
+}, { threshold: 0.5 });
+
+counters.forEach(counter => {
+  observer.observe(counter);
+});
+</script>
+
+
+
+
+<section class="services" id="services" data-aos="fade-up" data-aos-duration="1000">
+  <div class="container">
+
+    <span class="section-label">Služby</span>
+
+    <h2>
+      Kompletní servis <span class="highlight">od <span class="highlight-text">A</span> do <span class="highlight-text">Z</span>.</span>
+    </h2>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="icon">📈</div>
+        <h3>Odhad ceny</h3>
+        <p>Přesný, tržní odhad zdarma a bez závazku – vždy s daty v ruce.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">📷</div>
+        <h3>Profi prezentace</h3>
+        <p>Kvalitní fotografie, 3D video prohlídka a homestaging.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🤝</div>
+        <h3>Vyjednávání</h3>
+        <p>Vyjednám cenu, která odráží skutečnou hodnotu vaší nemovitosti.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">⚖️</div>
+        <h3>Právní servis</h3>
+        <p>Advokátní úschova, smlouvy a katastr – vše pod jednou střechou.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">📄</div>
+        <h3>Hypotéka</h3>
+        <p>Spolupráce s hypotečním specialistou pro nejlepší podmínky.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🛡️</div>
+        <h3>Bezpečná transakce</h3>
+        <p>Pojištění odpovědnosti a garance férového procesu.</p>
+      </div>
+      
+      <div class="service-card">
+        <div class="icon">⚖️</div>
+        <h3>Právní servis</h3>
+        <p>Advokátní úschova, smlouvy a katastr – vše pod jednou střechou.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">📄</div>
+        <h3>Hypotéka</h3>
+        <p>Spolupráce s hypotečním specialistou pro nejlepší podmínky.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🛡️</div>
+        <h3>Bezpečná transakce</h3>
+        <p>Pojištění odpovědnosti a garance férového procesu.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<br>
+<br>
+
+
+
+
+<section class="team" id ="team" data-aos="fade-up" data-aos-duration="1000">
+  <div class="container">
+
+    <h2 class="team-title">NÁŠ TÝM SPECIALISTŮ</h2>
+    <p class="team-subtitle">PROFESIONÁLOVÉ, KTEŘÍ VÁM POMOHOU S VAŠEMI NEMOVITOSTMI.</p>
+
+    <div class="team-grid">
+
+      <!-- ČLEN -->
+      <div class="team-card">
+        <div class="team-img">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+        </div>
+
+        <h3>Jan Novák</h3>
+        <span>Realitní makléř</span>
+
+        <p class="contact">📞 123 456 789</p>
+        <p class="contact">✉️ novak@email.cz</p>
+      </div>
+
+      <!-- ČLEN -->
+      <div class="team-card">
+        <div class="team-img">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+        </div>
+
+        <h3>Petra Svobodová</h3>
+        <span>Hypoteční specialista</span>
+
+        <p class="contact">📞 987 654 321</p>
+        <p class="contact">✉️ petra@email.cz</p>
+      </div>
+
+      <!-- ČLEN -->
+      <div class="team-card">
+        <div class="team-img">
+          <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="">
+        </div>
+
+        <h3>Tomáš Dvořák</h3>
+        <span>Právní servis</span>
+
+        <p class="contact">📞 456 123 789</p>
+        <p class="contact">✉️ tomas@email.cz</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+<section class="location">
+  <div class="container location-wrapper">
+
+    <!-- LEFT -->
+    <div class="location-text">
+      <h2>KDE NÁS NAJDETE</h2>
+
+      <p>
+        NAŠE KANCELÁŘ SE NACHÁZÍ V CENTRU MĚSTA, KDE JSME VÁM PLNĚ K DISPOZICI.
+        RÁDI VÁS PŘIVÍTÁME OSOBNĚ A PROBEREME VŠE KOLEM VAŠÍ NEMOVITOSTI.
+      </p>
+
+      <p>
+        <strong>ADRESA-SÍDLO FIRMY:</strong><br>
+        VÁCLAVSKÉ NÁMĚSTÍ 1<br>
+        110 00 PRAHA
+      </p>
+
+      <p>
+        <strong>EMAIL:</strong><br>
+        ✉️ INFO@REALITY.CZ
+      </p>
+
+         <p>
+        <strong class="location-phone-label">TELEFON:</strong><br>
+        <span class="location-phone">📞 723 958 609</span>
+      </p>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="location-map">
+      <iframe 
+        src="https://maps.google.com/maps?q=vaclavske%20namesti%20praha&t=&z=15&ie=UTF8&iwloc=&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<footer class="footer" id="contact">
+
+  <div class="container footer-top">
+
+    <!-- LOGO -->
+    <div class="footer-logo">
+      <span class="blue"><b><strong>NEMOVITOSTI BEZ STAROSTI</strong></b></span><br>
+    </div>
+
+    <!-- MENU -->
+    <div class="footer-columns">
+
+      <div class="footer-col">
+        <a href="#">WEBFLY THEMES</a>
+        <a href="#">PRE-SALE FAQS</a>
+        <a href="#">SUBMIT A TICKET</a>
+      </div>
+
+      <div class="footer-col">
+        <a href="#">SERVICES</a>
+        <a href="#">THEME TWEAK</a>
+      </div>
+
+      <div class="footer-col">
+        <a href="#">SHOWCASE</a>
+        <a href="#">WIDGETKIT</a>
+        <a href="#">SUPPORT</a>
+      </div>
+
+      <div class="footer-col">
+        <a href="#">ABOUT US</a>
+        <a href="#">CONTACT US</a>
+        <a href="#">AFFILIATES</a>
+        <a href="#">RESOURCES</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- LINE -->
+  <div class="footer-divider"></div>
+
+  <!-- BOTTOM -->
+  <div class="container footer-bottom">
+
+    <div class="footer-social">
+      <a href="#">f</a>
+      <a href="#">t</a>
+      <a href="#">rss</a>
+      <a href="#">g+</a>
+      <a href="#">•••</a>
+    </div>
+
+    <p>© Copyright. All rights reserved.</p>
+
+  </div>
+
+</footer>
+
+
+</body>
+</html>
+<script>
+  // Mobile nav toggle
+  (function(){
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+    if (!hamburger || !nav) return;
+
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('active');
+      hamburger.classList.toggle('open');
+      const expanded = nav.classList.contains('active');
+      hamburger.setAttribute('aria-expanded', expanded);
+    });
+  })();
+</script>
+
+
