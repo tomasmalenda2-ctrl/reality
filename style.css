@@ -25,19 +25,9 @@ html {
 }
 
 body {
-  background: linear-gradient(to bottom, #F9D25D, #F9CE3B);
+  background: linear-gradient(to bottom, #ffedaa, #ffe47a);
   min-height: 100vh;
 }
-
-body {
-  background: linear-gradient(to bottom, #F9D25D, #F9CE3B);
-  min-height: 100vh;
-}
-
-/* #5193FC - modra , #F9D25D - zluta , #FFB224 - oranzova */
-
-
-
 
 /* NAVBAR */
 .navbar {
@@ -45,10 +35,9 @@ body {
   top: 0;
   width: 100%;
   z-index: 999;
-  background: transparent;
   padding: 10px 20px;
   box-sizing: border-box;
-  background: rgba(0,0,0,0.3);
+  background: #ff3b3b;
 }
 
 .nav-inner {
@@ -60,7 +49,7 @@ body {
 }
 
 .logo {
-  color: white;
+  color: #fff;
   font-weight: bold;
   font-size: 20px;
   margin-left: -25px;
@@ -70,9 +59,9 @@ body {
 
 .nav-pill a {
   text-decoration: none;
-  color: white;
+  color: #fff;
   font-size: 14px;
-  opacity: 0.8;
+  opacity: 1;
   transition: 0.3s;
 }
 
@@ -84,6 +73,8 @@ body {
 
 .nav-pill button {
   text-transform: uppercase;
+  color: #fff;
+  font-size: 14px;
 }
 
 .nav-pill a:hover {
@@ -139,7 +130,7 @@ body {
     left: 0;
     right: 0;
     width: 100%;
-    background: rgba(0,0,0,0.95);
+    background: #e93232;
     flex-direction: column;
     align-items: center;
     padding: 30px 0;
@@ -221,6 +212,25 @@ body {
   contain: paint;
 }
 
+.doghouse-slide {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.image-credit {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  padding: 5px 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.85);
+  color: #333;
+  font-size: 11px;
+  text-decoration: none;
+}
+
 
 .hero::after {
   content: "";
@@ -236,10 +246,7 @@ body {
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background:
-    radial-gradient(125% 125% at 50% 90%, rgba(249, 210, 93, 0.12) 20%, rgba(81, 147, 252, 0.45) 100%),
-    linear-gradient(120deg, rgba(255, 255, 255, 0.08), transparent 60%);
-  opacity: 0.75;
+  background: none;
 }
 
 .hero-identity {
@@ -268,7 +275,7 @@ body {
   font-size: clamp(28px, 3.5vw, 44px);
   margin: 0 0 20px;
   line-height: 1.2;
-  color: #FFB224;
+  color: #ff3b3b;
   font-weight: 800;
   position: relative;
   top: 0;
@@ -276,7 +283,7 @@ body {
 
 .subtext {
   font-size: clamp(22px, 2.8vw, 32px);
-  color: #5281cc;
+  color: #FFB224;
   margin: 0 0 18px;
   line-height: 1.4;
 }
@@ -587,7 +594,7 @@ border-radius: 5px;
     text-transform: uppercase;
     font-size: 32px;
     letter-spacing: 1px;
-    color: #72a3ff; 
+    color: #ff3b3b;
     font-weight: bold;
 }
 
@@ -636,7 +643,7 @@ button::after, button::before {
   content: '';
   width: 0%;
   height: 2px;
-  background: #5193FC;
+  background: #ff3b3b;
   display: block;
   transition: 0.5s;
 }
@@ -663,7 +670,7 @@ button:hover::after, button:hover::before {
 .services h2 {
     font-size: 36px;
     margin: 10px 0 40px;
-    color: white;
+    color: #fff;
     text-transform: uppercase;
 }
 
@@ -680,7 +687,7 @@ button:hover::after, button:hover::before {
     border-radius: 15px;
     border: 1px solid #eee;
     transition: 0.3s;
-    background: linear-gradient(135deg, #f8f9fa, #e0f7fa); /* jemný gradient */
+    background: linear-gradient(135deg, #fffaf8, #fff0eb);
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
@@ -693,7 +700,7 @@ button:hover::after, button:hover::before {
 .icon {
     width: 50px;
     height: 50px;
-    background: #a8dadc; /* světle modrá */
+    background: #ffd9d4;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -756,7 +763,7 @@ button:hover::after, button:hover::before {
 
 .stats {
     padding: 60px 0;
-    background: #E0F7FF;
+    background: #fff;
     position: relative;
     width: 100%;
     z-index: 3;
@@ -784,7 +791,7 @@ button:hover::after, button:hover::before {
 .stats h2 {
     font-size: 36px;
     margin: 10px 0 50px;
-    color: #1d3557;
+    color: #ff3b3b;
     text-transform: uppercase;
 }
 
@@ -795,6 +802,48 @@ button:hover::after, button:hover::before {
     gap: 40px;
 }
 
+.recommendations {
+    padding: 70px 0;
+    background: #fff7f5;
+}
+
+.recommendations .section-label {
+    color: #ff3b3b;
+}
+
+.recommendations h2 {
+    margin: 10px 0 35px;
+    color: #333;
+    font-size: 36px;
+    text-transform: uppercase;
+}
+
+.recommendations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.recommendation-card {
+    padding: 28px;
+    border: 1px solid #ffe0da;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(120, 40, 30, 0.07);
+}
+
+.recommendation-card h3 {
+    margin: 0 0 12px;
+    color: #ff3b3b;
+    font-size: 21px;
+}
+
+.recommendation-card p {
+    margin: 0;
+    color: #4b4b4b;
+    line-height: 1.6;
+}
+
 /* ITEM */
 .stat {
     text-align: left;
@@ -803,13 +852,13 @@ button:hover::after, button:hover::before {
 .stat h3 {
     font-size: 48px;
     margin: 0;
-    color: #1d3557; /* tmavší modrá */
+    color: #000;
 }
 
 .stat p {
     margin-top: 5px;
     font-size: 18px;
-    color: #333;
+    color: #FFB224;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -817,6 +866,10 @@ button:hover::after, button:hover::before {
 /* RESPONSIVE */
 @media (max-width: 900px) {
     .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .recommendations-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -880,6 +933,20 @@ button:hover::after, button:hover::before {
         grid-template-columns: 1fr;
     }
 
+    .recommendations {
+        padding: 50px 0;
+    }
+
+    .recommendations h2 {
+        font-size: 24px;
+        margin-bottom: 24px;
+    }
+
+    .recommendations-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
     .stat h3 {
         font-size: 36px;
     }
@@ -900,7 +967,7 @@ button:hover::after, button:hover::before {
 
 
 .blue {
-  color: #72a3ff;
+  color: #ff3b3b;
   font-weight: bold;
   font-size: 25px;
 }
@@ -955,7 +1022,7 @@ button:hover::after, button:hover::before {
 }
 
 .footer-col a:hover {
-  color: #007bff;
+  color: #ff3b3b;
 }
 
 /* LINE */
@@ -991,8 +1058,8 @@ button:hover::after, button:hover::before {
 }
 
 .footer-social a:hover {
-  border-color: #007bff;
-  color: #007bff;
+  border-color: #ff3b3b;
+  color: #ff3b3b;
 }
 
 /* COPYRIGHT */
@@ -1016,7 +1083,7 @@ button:hover::after, button:hover::before {
 
 /* MODERN ABOUT SECTION */
 .about-modern {
-  background: #f7f9fb;
+  background: #fff7f5;
   padding: 120px 0;
   color: white;
   overflow: hidden;
@@ -1113,7 +1180,7 @@ button:hover::after, button:hover::before {
 
 .process {
   padding: 100px 0;
-  background: #fbe072;
+  background: linear-gradient(to bottom, #ffedaa, #ffe47a);
   text-transform: uppercase;
 }
 
@@ -1163,7 +1230,7 @@ button:hover::after, button:hover::before {
 .number {
   font-size: 28px;
   font-weight: bold;
-  color: #007bff;
+  color: #ff3b3b;
   min-width: 60px;
 }
 
@@ -1199,7 +1266,7 @@ button:hover::after, button:hover::before {
   /* reduce heavy backdrop on mobile to avoid repaint jank */
   .navbar {
     backdrop-filter: none;
-    background: rgba(0,0,0,0.85);
+    background: #ff3b3b;
   }
 }
 
@@ -1214,7 +1281,7 @@ button:hover::after, button:hover::before {
 .team-title {
   font-size: 36px;
   margin-bottom: 40px;
-  color: #72a3ff;
+  color: #ff3b3b;
 }
 
 /* GRID */
@@ -1245,7 +1312,7 @@ button:hover::after, button:hover::before {
   margin: 0 auto 20px;
   border-radius: 50%;
   overflow: hidden;
-  border: 4px solid #007bff; /* 👈 modrá barva */
+  border: 4px solid #ff3b3b;
 }
 
 .team-img img {
@@ -1257,7 +1324,7 @@ button:hover::after, button:hover::before {
 /* TEXT */
 .team-card h3 {
   margin: 10px 0 5px;
-  color: #4b8bff;
+  color: #ff3b3b;
 }
 
 .team-card span {
@@ -1275,7 +1342,7 @@ button:hover::after, button:hover::before {
 
 .team-subtitle {
   font-size: 20px;
-  color: #72a3ff;
+  color: #fff;
   margin-bottom: 30px;
   font-weight: 700;
 }
@@ -1309,7 +1376,11 @@ button:hover::after, button:hover::before {
 
 
 
-
+.location p {
+  font-size: 18px;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
 
 
 
@@ -1337,27 +1408,22 @@ button:hover::after, button:hover::before {
 .location-text h2 {
   font-size: 42px;
   margin-bottom: 20px;
-  color: #72a3ff;
+  color: #ff3b3b;
   text-align: center;
 }
 
 .location-text p {
   margin-bottom: 18px;
-  color: #ffffff;
+  color: #fff;
   font-size: 20px;
   line-height: 1.6;
   text-align: center;
 }
 
 .location-text strong {
-  color: #72a3ff;
+  color: #ff3b3b;
   font-weight: 700;
   display: block;
-}
-
-.location-text strong
-.location-text  {
-  color: #ff3b3b !important;
 }
 
 .location-phone-label {
