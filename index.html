@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-content="page_title">Nemovitosti bez starostí</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init({
+    once: true,
+    duration: 500,
+    easing: 'ease-out-cubic',
+    offset: 30
+  });
+</script>
+
+
+
+
+
+<header class="navbar">
+  <div class="nav-inner">
+    
+    <div class="logo" data-content="brand_name">NEMOVITOSTI BEZ STAROSTI</div>
+
+    <!-- HAMBURGER -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav class="nav-pill" id="nav">
+      <a href="index.html#contact" class="btn primary" data-content="nav_sell">CHCI PRODAT</a>
+      <a href="index.html#contact" class="btn secondary" data-content="nav_buy">CHCI KOUPIT</a>
+      <a href="index.html"><button data-content="nav_home">Úvod</button></a>
+      <a href="index.html#services"><button data-content="nav_services">Služby</button></a>
+      <a href="postup.html"><button data-content="nav_process">Postup prodeje</button></a>
+      <a href="index.html#team"><button data-content="nav_team">Náš tým</button></a>
+      <a href="index.html#contact" class="cta" data-content="nav_contact">Kontakty</a>
+    </nav>
+
+  </div>
+</header>
+
+
+
+
+<section class="hero">
+  <div class="hero-slider">
+    <div class="slider-track">
+      <div class="slide" style="background-image: url('https://i.pinimg.com/originals/32/e1/35/32e135657945054bcdb9b71cbee58be8.jpg');"></div>
+      <div class="slide" style="background-image: url('https://www.asb-portal.cz/wp-content/uploads/2019/04/Rekonstrukce-RD-v-Praze-07.jpg');"></div>
+      <div class="slide" style="background-image: url('https://awe-inspiringplaces.com/wp-content/uploads/2024/01/Sternberk-Castle.jpeg');"></div>
+      <div class="slide" style="background-image: url('https://www.10wallpaper.com/wallpaper/2560x1600/1507/Igloo_Snow-HD_Photoshoot_Wallpaper_2560x1600.jpg');"></div>
+      <div class="slide doghouse-slide" style="background-image: url('https://sobakovod.club/uploads/posts/2022-01/1641928250_8-sobakovod-club-p-sobaki-kartinki-budki-dlya-sobak-8.jpg');">
+        <a class="image-credit" href="https://commons.wikimedia.org/wiki/File:Red_wooden_doghouse_in_Tuntorp_1.jpg" target="_blank" rel="noopener noreferrer">Foto: W. Carter / CC BY-SA 4.0</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-bg-pattern" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <h2 data-content="hero_title">SOUKROMÝ REALITNÍ ZPROSTŘEDKOVATEL</h2>
+
+    <p class="subtext">
+      <b data-content="hero_subtitle">NEZABÝVEJTE SE STAROSTMI, NECHTE JE NA NÁS.
+        OD PRODEJE PO PRÁVNÍ SERVIS, VŠE VYŘEŠÍME ZA VÁS.</b>
+    </p>
+  </div>
+
+  <div class="hero-mirror-label">REALITNÍ KANCELÁŘ</div>
+
+  
+  <div class="hero-identity">
+    <h1 data-content="hero_name"><b>Ilona Brázdilová</b></h1>
+    <p class="phone" data-content="hero_phone"><b>TEL: 723 958 609</b></p>
+  </div>
+</section>
+
+<script>
+  const heroTrack = document.querySelector('.hero-slider .slider-track');
+
+  if (heroTrack) {
+    const slides = Array.from(heroTrack.children);
+    const slideCount = slides.length;
+    let currentIndex = 0;
+    let sliderInterval = null;
+    let isTransitioning = false;
+
+    // Clone slides for seamless infinite looping
+    slides.forEach(slide => heroTrack.appendChild(slide.cloneNode(true)));
+
+    function showSlide(index, immediate = false) {
+      const offset = -index * 100;
+      if (immediate) {
+        heroTrack.style.transition = 'none';
+        heroTrack.style.transform = `translate3d(${offset}vw,0,0)`;
+      } else {
+        heroTrack.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+        heroTrack.style.transform = `translate3d(${offset}vw,0,0)`;
+      }
+    }
+
+    function nextSlide() {
+      if (isTransitioning) return;
+      isTransitioning = true;
+      currentIndex += 1;
+      showSlide(currentIndex, false);
+
+      if (currentIndex === slideCount) {
+        setTimeout(() => {
+          showSlide(0, true);
+          currentIndex = 0;
+          isTransitioning = false;
+        }, 400);
+      } else {
+        setTimeout(() => {
+          isTransitioning = false;
+        }, 400);
+      }
+    }
+
+    function startSlider() {
+      if (sliderInterval) return;
+      sliderInterval = setInterval(nextSlide, 3500);
+    }
+
+    function stopSlider() {
+      if (!sliderInterval) return;
+      clearInterval(sliderInterval);
+      sliderInterval = null;
+    }
+
+    // Pause when page hidden
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stopSlider();
+      else startSlider();
+    });
+
+    // Pause on hover
+    heroTrack.addEventListener('mouseenter', stopSlider);
+    heroTrack.addEventListener('mouseleave', startSlider);
+
+    showSlide(0, true);
+    setTimeout(startSlider, 2000); // První slide po 2 sekundách
+  }
+</script>
+
+<section class="stats" data-aos="fade-up" data-aos-duration="1000">
+  <div class="container">
+
+    <span class="section-label" data-content="stats_label">Proč s námi</span>
+
+    <h2>
+       <span class="highlight" data-content="stats_title">ČÍSLA, KTERÁ MLUVÍ ZA NÁS.</span>
+    </h2>
+
+    <div class="stats-grid">
+
+
+      <div class="stat">
+        <h3 class="counter" data-target="12">0</h3>
+        <p data-content="stat_years">let na trhu</p>
+      </div>
+
+      <div class="stat">
+        <h3 class="counter" data-target="280">0</h3>
+        <p data-content="stat_clients">spokojených klientů</p>
+      </div>
+
+      <div class="stat">
+        <h3 class="counter" data-target="98">0</h3>
+        <p data-content="stat_above_estimate">prodáno nad odhad</p>
+      </div>
+
+      <div class="stat">
+        <h3 class="counter" data-target="21">0</h3>
+        <p data-content="stat_days">dní průměrná doba prodeje</p>
+      </div>
+      
+    </div>
+  </div>
+</section>
+<section class="recommendations" aria-labelledby="recommendations-title" data-aos="fade-up" data-aos-duration="1000">
+  <div class="container">
+    <span class="section-label">Naše přednosti</span>
+    <h2 id="recommendations-title">DOPORUČENÍ</h2>
+
+    <div class="recommendations-grid">
+      <article class="recommendation-card">
+        <h3 data-content="recommendation_1_title">Osobní přístup</h3>
+        <p data-content="recommendation_1_text">Každou nemovitost i situaci řešíme individuálně a srozumitelně vás provedeme celým prodejem.</p>
+      </article>
+      <article class="recommendation-card">
+        <h3 data-content="recommendation_2_title">Profesionální prezentace</h3>
+        <p data-content="recommendation_2_text">Kvalitní fotografie a promyšlená propagace pomohou vaší nemovitosti oslovit správné zájemce.</p>
+      </article>
+      <article class="recommendation-card">
+        <h3 data-content="recommendation_3_title">Bezstarostný průběh</h3>
+        <p data-content="recommendation_3_text">Od odhadu ceny až po smlouvy a předání máte potřebnou podporu na jednom místě.</p>
+      </article>
+    </div>
+  </div>
+</section>
+<script>
+const counters = document.querySelectorAll('.counter');
+
+const runCounter = (counter) => {
+  const target = +counter.getAttribute('data-target');
+  let count = 0;
+
+  const speed = target / 50;
+
+  const update = () => {
+    if (count < target) {
+      count += speed;
+      counter.innerText = Math.floor(count);
+      requestAnimationFrame(update);
+    } else {
+      // finální formát
+      if (target === 98) {
+        counter.innerText = target + " %";
+      } else if (target === 12 || target === 280) {
+        counter.innerText = target + "+";
+      } else {
+        counter.innerText = target;
+      }
+    }
+  };
+
+  update();
+};
+
+// Intersection Observer (spustí při scrollu)
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const counter = entry.target;
+      runCounter(counter);
+      observer.unobserve(counter);
+    }
+  });
+}, { threshold: 0.5 });
+
+counters.forEach(counter => {
+  observer.observe(counter);
+});
+</script>
+
+
+
+
+<section class="services" id="services" data-aos="fade-up" data-aos-duration="1000">
+  <div class="container">
+
+    <span class="section-label" data-content="services_label">Služby</span>
+
+    <h2>
+      <span data-content="services_title">Kompletní servis od A do Z.</span>
+    </h2>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="icon">📈</div>
+        <h3 data-content="service_01_title">Odhad ceny</h3>
+        <p data-content="service_01_text">Přesný, tržní odhad zdarma a bez závazku – vždy s daty v ruce.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">📷</div>
+        <h3 data-content="service_02_title">Profi prezentace</h3>
+        <p data-content="service_02_text">Kvalitní fotografie, 3D video prohlídka a homestaging.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🤝</div>
+        <h3 data-content="service_03_title">Vyjednávání</h3>
+        <p data-content="service_03_text">Vyjednám cenu, která odráží skutečnou hodnotu vaší nemovitosti.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">⚖️</div>
+        <h3 data-content="service_04_title">Právní servis</h3>
+        <p data-content="service_04_text">Advokátní úschova, smlouvy a katastr – vše pod jednou střechou.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">📄</div>
+        <h3 data-content="service_05_title">Hypotéka</h3>
+        <p data-content="service_05_text">Spolupráce s hypotečním specialistou pro nejlepší podmínky.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">🛡️</div>
+        <h3 data-content="service_06_title">Bezpečná transakce</h3>
+        <p data-content="service_06_text">Pojištění odpovědnosti a garance férového procesu.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<br>
+<br>
+
+
+
+
+<section class="team" id ="team" data-aos="fade-up" data-aos-duration="1000">
+  <div class="container">
+
+    <h2 class="team-title" data-content="team_title">NÁŠ TÝM SPECIALISTŮ</h2>
+    <p class="team-subtitle" data-content="team_subtitle">PROFESIONÁLOVÉ, KTEŘÍ VÁM POMOHOU S VAŠEMI NEMOVITOSTMI.</p>
+
+    <div class="team-grid" id="team-list">
+      <p class="team-empty">Informace o týmu připravujeme.</p>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+<section class="location">
+  <div class="container location-wrapper">
+
+    <!-- LEFT -->
+    <div class="location-text">
+      <h2 data-content="location_title">KDE NÁS NAJDETE</h2>
+
+      <p data-content="location_intro">
+        NAŠE KANCELÁŘ SE NACHÁZÍ VE ŠTERNBERKU, KDE JSME VÁM PLNĚ K DISPOZICI.
+        RÁDI VÁS PŘIVÍTÁME OSOBNĚ A PO TELEFONU. PROBEREME VŠE KOLEM VAŠÍ NEMOVITOSTI.
+      </p>
+
+      <p>
+        <strong data-content="location_address_label">ADRESA-SÍDLO FIRMY:</strong><br>
+        <span data-content="location_address">VÁCLAVSKÉ NÁMĚSTÍ 1&#10;110 00 PRAHA</span>
+      </p>
+
+      <p>
+        <strong data-content="location_email_label">EMAIL:</strong><br>
+        <span data-content="location_email">✉️ INFO@REALITY.CZ</span>
+      </p>
+
+         <p>
+        <strong class="location-phone-label" data-content="location_phone_label">TELEFON:</strong><br>
+        <span class="location-phone" data-content="location_phone">📞 723 958 609</span>
+      </p>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="location-map">
+      <iframe 
+        src="https://maps.google.com/maps?q=vaclavske%20namesti%20praha&t=&z=15&ie=UTF8&iwloc=&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<footer class="footer" id="contact">
+
+  <div class="container footer-top">
+
+    <!-- LOGO -->
+    <div class="footer-logo">
+      <span class="blue" data-content="footer_brand"><b><strong>NEMOVITOSTI BEZ STAROSTI</strong></b></span><br>
+    </div>
+
+    <!-- MENU -->
+    <div class="footer-columns">
+      <div class="footer-col">
+        <a href="#services" data-content="nav_services">Služby</a>
+        <a href="postup.html" data-content="nav_process">Postup prodeje</a>
+        <a href="#team" data-content="nav_team">Náš tým</a>
+        <a href="#contact" data-content="nav_contact">Kontakty</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- LINE -->
+  <div class="footer-divider"></div>
+
+  <!-- BOTTOM -->
+  <div class="container footer-bottom">
+
+    <p>© Všechna práva vyhrazena.</p>
+
+  </div>
+
+</footer>
+
+
+<script>
+  // Mobile nav toggle
+  (function(){
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+    if (!hamburger || !nav) return;
+
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('active');
+      hamburger.classList.toggle('open');
+      const expanded = nav.classList.contains('active');
+      hamburger.setAttribute('aria-expanded', expanded);
+    });
+  })();
+</script>
+<script src="google-config.js"></script>
+<script src="site-content.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+window.REALITY_CONTENT_ENDPOINT = "";
