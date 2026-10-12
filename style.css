@@ -31,8 +31,7 @@ body {
 
 /* NAVBAR */
 .navbar {
-  position: fixed;
-  top: 0;
+  position: relative;
   width: 100%;
   z-index: 999;
   padding: 10px 20px;
@@ -2000,4 +1999,128 @@ textarea:focus {
   text-shadow: 0 2px 12px rgba(35, 20, 10, 0.9);
   text-align: right;
   text-decoration: line-through;
+}
+
+.hero-mirror {
+  position: absolute;
+  z-index: 2;
+  right: 2.5%;
+  bottom: 28px;
+  text-align: right;
+}
+
+.hero-mirror-label {
+  position: static;
+}
+
+.hero-mirror-subtitle {
+  margin-top: 8px;
+  color: var(--color-sage-dark);
+  font-size: clamp(14px, 2vw, 20px);
+  font-weight: 700;
+  text-shadow: 0 2px 12px rgba(35, 20, 10, 0.9);
+}
+
+.nav-pill .cta,
+.nav-pill .btn.primary,
+.nav-pill .btn.secondary {
+  background: var(--color-yellow);
+  color: var(--color-white);
+  text-shadow: 0 1px 3px rgba(53, 37, 29, 0.75);
+}
+
+.stats {
+  background: var(--color-yellow-background);
+}
+
+.stats h2,
+.stats h2 .highlight,
+.stats .stat p,
+.stat h3 {
+  color: var(--color-sage-dark);
+}
+
+.services h2,
+.stats h2,
+.recommendations h2 {
+  color: var(--color-sage-dark);
+  font-size: clamp(22px, 2.3vw, 32px);
+  line-height: 1.2;
+}
+
+.services .section-label {
+  font-size: clamp(28px, 3vw, 38px);
+}
+
+.stats .section-label,
+.recommendations .section-label {
+  font-size: clamp(28px, 3vw, 38px);
+}
+
+.team-subtitle {
+  color: var(--color-white);
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(53, 37, 29, 0.75);
+}
+
+.location-text {
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.location-text h2,
+.location-text strong {
+  color: var(--color-sage-dark);
+}
+
+.location-text p:not(.location-intro) {
+  line-height: 1.35;
+}
+
+.location-text p:not(.location-intro) br {
+  display: none;
+}
+
+.location-text strong {
+  line-height: 1.2;
+}
+
+.location-phone-label,
+.location-phone {
+  font-size: 36px;
+}
+
+.location-text p,
+.location-text p span,
+.location-phone {
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+.location-text p {
+  text-shadow: 0 1px 3px rgba(53, 37, 29, 0.55);
+}
+
+.hero-mirror-subtitle {
+  color: var(--color-yellow-text);
+  font-size: clamp(20px, 3vw, 28px);
+}
+
+@media (max-width: 768px) {
+  .hero-mirror {
+    right: 12px;
+    bottom: 20px;
+  }
+
+  .location-text {
+    padding: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .location-phone-label,
+  .location-phone {
+    font-size: 22px;
+  }
 }
